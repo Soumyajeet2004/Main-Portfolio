@@ -29,7 +29,9 @@ const Home = () => {
         setResult("Sending...");
 
         const formData = new FormData(event.target);
-        formData.append("access_key", "9d85d4f0-eecb-45b8-b497-6aa799b33540");
+
+        const object = Object.fromEntries(formData.entries()); // Convert to plain object
+        object.access_key = "9d85d4f0-eecb-45b8-b497-6aa799b33540";
 
         // only append captcha if using real sitekey
         if (SITE_KEY !== "10000000-ffff-ffff-ffff-000000000001") {
@@ -37,7 +39,7 @@ const Home = () => {
                 setResult("Please complete captcha");
                 return;
             }
-            formData.append("h-captcha-response", token);
+            object["h-captcha-response"] = token;
         } else {
             // Local dev mode → bypass Web3Forms call
             setResult("Form Submitted Successfully (Dev Mode ✅)");
@@ -47,20 +49,29 @@ const Home = () => {
             return;
         }
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData,
-        });
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(object),
+            });
 
-        const data = await response.json();
-        if (data.success) {
-            setResult("Form Submitted Successfully ✅");
-            event.target.reset();
-            captchaRef.current.resetCaptcha();
-            setToken(null);
-        } else {
-            console.log("Error", data);
-            setResult(data.message);
+            const data = await response.json();
+
+            if (data.success) {
+                setResult("Form Submitted Successfully ✅");
+                event.target.reset();
+                captchaRef.current.resetCaptcha();
+                setToken(null);
+            } else {
+                console.log("Error", data);
+                setResult(data.message);
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            setResult("Something went wrong. Please try again.");
         }
     };
 

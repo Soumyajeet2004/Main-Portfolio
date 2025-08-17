@@ -432,7 +432,6 @@ const Home = () => {
                     <input type="submit" value="Send Message" className="btn" />
                 </div>
             </form>
-            <span>{result}</span>
         </section>
         <footer className="footer">
             <div className="footer-text">

@@ -14,74 +14,6 @@ import amazon from '../assets/Amazonclone.png';
 import rock from '../assets/rock_paper_scissors__2x.png';
 import tic from '../assets/7.webp';
 const Home = () => {
-    const [token, setToken] = useState(null);
-    const [result, setResult] = useState("");
-    const captchaRef = useRef(null);
-
-    // switch key automatically
-    const SITE_KEY =
-        window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
-            ? "10000000-ffff-ffff-ffff-000000000001" // test key
-            : import.meta.env.VITE_SITE_KEY; // your real key
-
-    const onSubmit = async (event) => {
-        event.preventDefault();
-        setResult("Sending...");
-
-        const formData = new FormData(event.target);
-
-        const object = Object.fromEntries(formData.entries()); // Convert to plain object
-        object.access_key = "9d85d4f0-eecb-45b8-b497-6aa799b33540";
-        formData.append("access_key", "9d85d4f0-eecb-45b8-b497-6aa799b33540");
-
-        // only append captcha if using real sitekey
-        if (SITE_KEY !== "10000000-ffff-ffff-ffff-000000000001") {
-            if (!token) {
-                setResult("Please complete captcha");
-                return;
-            }
-            object["h-captcha-response"] = token;
-        } else {
-            // Local dev mode → bypass Web3Forms call
-            setResult("Form Submitted Successfully (Dev Mode ✅)");
-            event.target.reset();
-            captchaRef.current.resetCaptcha();
-            setToken(null);
-            return;
-        }
-
-        try {
-            const response = await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: formData,
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
-                setResult("Form Submitted Successfully ✅");
-                event.target.reset();
-                captchaRef.current.resetCaptcha();
-                setToken(null);
-            } else {
-                console.log("Error", data);
-                setResult(data.message);
-            }
-        } catch (error) {
-            console.error("Error submitting form:", error);
-            setResult("Something went wrong. Please try again.");
-        }
-    };
-
-
-    useEffect(() => {
-        if (token) {
-            console.log("Captcha token: ", token);
-        }
-    }, [token]);
 
     useEffect(() => {
         // ========== SCROLL REVEAL ==========
@@ -132,7 +64,7 @@ const Home = () => {
                     <a href="https://github.com/Soumyajeet2004"><i className="fa-brands fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/soumyajeet-saha-2b281125a"><i className="fa-brands fa-linkedin"></i></a>
                 </div>
-                <a href="https://drive.google.com/file/d/1HzooPnv6SmUjk5MVz2TJp7zdzkDvw-Eu/view?usp=sharing" className="btn">Download Resume</a>
+                <a href="https://drive.google.com/file/d/1p63Ep5lU7rW1cRMhJhgE1OS8q3TwEo56/view?usp=sharing" className="btn">Download Resume</a>
             </div>
             <div className="home-img">
                 <img src={profileimage1} alt="" />
@@ -409,30 +341,28 @@ const Home = () => {
             </div>
         </section>
 
-        {/* --------------------- CONTACT --------------------- */}
-        <section className="contact" id="contact">
-            <h2 className="heading">Contact <span>Me</span></h2>
-            <form onSubmit={onSubmit}>
-                <div className="input-box">
-                    <input type="hidden" name="from_name" value="Portfolio" />
-                    <input type="text" name="name" placeholder="Full Name" />
-                    <input type="text" name="email" placeholder="Email Address" />
+        <section className="thankyou-section" id="thankyou">
+            <div className="thankyou-container">
+                <h2 className="thankyou-title">Thank You for Visiting!</h2>
+                <p className="thankyou-text">
+                    I appreciate your time and interest in exploring my portfolio.
+                    Feel free to connect with me on LinkedIn, GitHub, or just say hello. 🚀
+                </p>
+                <div className="thankyou-links">
+                    <a href="https://github.com/Soumyajeet2004
+                    " target="_blank" rel="noreferrer">
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/soumyajeet-saha-2b281125a" target="_blank" rel="noreferrer">
+                        LinkedIn
+                    </a>
+                    <a href="https://drive.google.com/file/d/1p63Ep5lU7rW1cRMhJhgE1OS8q3TwEo56/view?usp=sharing" download>
+                        Download Resume
+                    </a>
                 </div>
-                <div className="input-box">
-                    <input type="number" name="number" placeholder="Mobile Number" />
-                    <input type="text" name="subject" placeholder="Email Subject" />
-                </div>
-                <div>
-                    <textarea name="message" rows="10" cols="10" placeholder="Type Your Message"></textarea>
-                    <HCaptcha
-                        sitekey={SITE_KEY}
-                        onVerify={setToken}
-                        ref={captchaRef}
-                    />
-                    <input type="submit" value="Send Message" className="btn" />
-                </div>
-            </form>
+            </div>
         </section>
+
         <footer className="footer">
             <div className="footer-text">
                 <p>Copyright &copy; 2024 By Soumyajeet Saha | All Rights Reserved .</p>

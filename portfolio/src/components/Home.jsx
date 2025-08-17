@@ -3,7 +3,7 @@ import Typed from 'typed.js';
 import ScrollReveal from 'scrollreveal';
 import '../styles/Home.css';
 import profileimage1 from '../assets/20240706_133317.png';
-import profileimage2 from '../assets/1000256130.png';
+import profileimage2 from '../assets/WhatsApp Image 2025-08-17 at 11.35.49_269f2353.jpg';
 import estate from '../assets/types-of-real-estate-overview-scaled.jpg';
 import calculator from '../assets/calculator-L.png';
 import django from '../assets/1_YZVjP-cfLKZplmdzHRDJqQ.png';

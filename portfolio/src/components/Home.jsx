@@ -32,6 +32,7 @@ const Home = () => {
 
         const object = Object.fromEntries(formData.entries()); // Convert to plain object
         object.access_key = "9d85d4f0-eecb-45b8-b497-6aa799b33540";
+        formData.append("access_key", "9d85d4f0-eecb-45b8-b497-6aa799b33540");
 
         // only append captcha if using real sitekey
         if (SITE_KEY !== "10000000-ffff-ffff-ffff-000000000001") {
@@ -55,7 +56,7 @@ const Home = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(object),
+                body: formData,
             });
 
             const data = await response.json();

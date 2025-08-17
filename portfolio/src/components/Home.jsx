@@ -22,7 +22,7 @@ const Home = () => {
     const SITE_KEY =
         window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
             ? "10000000-ffff-ffff-ffff-000000000001" // test key
-            : "2d8eac70-1c24-4e72-a7f2-f77469721a80"; // your real key
+            : import.meta.env.VITE_SITE_KEY; // your real key
 
     const onSubmit = async (event) => {
         event.preventDefault();

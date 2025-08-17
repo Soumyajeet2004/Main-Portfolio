@@ -43,7 +43,6 @@ const Home = () => {
                 <a href="#about">About</a>
                 <a href="#services">Education & Certifications</a>
                 <a href="#portfolio">Project</a>
-                <a href="#contact">Contact</a>
             </nav>
         </header>
 

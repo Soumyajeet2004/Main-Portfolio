@@ -1,5 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Typed from 'typed.js';
+import { useForm } from "react-hook-form";
+import HCaptcha from '@hcaptcha/react-hcaptcha';
+
 import ScrollReveal from 'scrollreveal';
 import '../styles/Home.css';
 import profileimage1 from '../assets/20240706_133317.png';
@@ -11,24 +14,62 @@ import amazon from '../assets/Amazonclone.png';
 import rock from '../assets/rock_paper_scissors__2x.png';
 import tic from '../assets/7.webp';
 const Home = () => {
-    useEffect(() => {
-        // ========== TYPED JS ==========
-        const typed = new Typed(".all-texts", {
-            strings: [
-                "Full-Stack Web Developer",
-                "Passionate Coder",
-                "Aspiring Software Engineer",
-            ],
-            typeSpeed: 60,
-            backSpeed: 40,
-            backDelay: 900,
-            loop: true,
+    const [token, setToken] = useState(null);
+    const [result, setResult] = useState("");
+    const captchaRef = useRef(null);
+
+    // switch key automatically
+    const SITE_KEY =
+        window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+            ? "10000000-ffff-ffff-ffff-000000000001" // test key
+            : "2d8eac70-1c24-4e72-a7f2-f77469721a80"; // your real key
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        setResult("Sending...");
+
+        const formData = new FormData(event.target);
+        formData.append("access_key", "9d85d4f0-eecb-45b8-b497-6aa799b33540");
+
+        // only append captcha if using real sitekey
+        if (SITE_KEY !== "10000000-ffff-ffff-ffff-000000000001") {
+            if (!token) {
+                setResult("Please complete captcha");
+                return;
+            }
+            formData.append("h-captcha-response", token);
+        } else {
+            // Local dev mode → bypass Web3Forms call
+            setResult("Form Submitted Successfully (Dev Mode ✅)");
+            event.target.reset();
+            captchaRef.current.resetCaptcha();
+            setToken(null);
+            return;
+        }
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData,
         });
 
-        return () => {
-            typed.destroy();
-        };
-    }, []);
+        const data = await response.json();
+        if (data.success) {
+            setResult("Form Submitted Successfully ✅");
+            event.target.reset();
+            captchaRef.current.resetCaptcha();
+            setToken(null);
+        } else {
+            console.log("Error", data);
+            setResult(data.message);
+        }
+    };
+
+
+    useEffect(() => {
+        if (token) {
+            console.log("Captcha token: ", token);
+        }
+    }, [token]);
 
     useEffect(() => {
         // ========== SCROLL REVEAL ==========
@@ -194,7 +235,7 @@ const Home = () => {
             </div>
 
             <div className="certificate-container">
-            <div className="services-box">
+                <div className="services-box">
                     <i className="fa-solid fa-stamp"></i>
                     <h3>Full Stack development Internship</h3>
                     <div className="edu">
@@ -300,7 +341,7 @@ const Home = () => {
         <section className="portfolio" id="portfolio">
             <h2 className="heading">My Latest <span>Projects</span></h2>
             <div className="portfolio-container">
-            <div className="portfolio-box">
+                <div className="portfolio-box">
                     <img src={estate} alt="" />
                     <div className="portfolio-layer">
                         <h3>Real Estate Website</h3>
@@ -359,8 +400,7 @@ const Home = () => {
         {/* --------------------- CONTACT --------------------- */}
         <section className="contact" id="contact">
             <h2 className="heading">Contact <span>Me</span></h2>
-            <form action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="9d85d4f0-eecb-45b8-b497-6aa799b33540" />
+            <form onSubmit={onSubmit}>
                 <div className="input-box">
                     <input type="hidden" name="from_name" value="Portfolio" />
                     <input type="text" name="name" placeholder="Full Name" />
@@ -372,13 +412,18 @@ const Home = () => {
                 </div>
                 <div>
                     <textarea name="message" rows="10" cols="10" placeholder="Type Your Message"></textarea>
-                    <div className="h-captcha" data-captcha="true"></div>
+                    <HCaptcha
+                        sitekey={SITE_KEY}
+                        onVerify={setToken}
+                        ref={captchaRef}
+                    />
                     <input type="submit" value="Send Message" className="btn" />
                 </div>
             </form>
+            <span>{result}</span>
         </section>
-        <footer class="footer">
-            <div class="footer-text">
+        <footer className="footer">
+            <div className="footer-text">
                 <p>Copyright &copy; 2024 By Soumyajeet Saha | All Rights Reserved .</p>
             </div>
         </footer>

@@ -14,6 +14,18 @@ import amazon from '../assets/Amazonclone.png';
 import rock from '../assets/rock_paper_scissors__2x.png';
 import tic from '../assets/7.webp';
 const Home = () => {
+    const [scrollWidth, setScrollWidth] = useState(0);
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            setScrollWidth(progress);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const typedRef = useRef(null);
     useEffect(() => {
         // ✅ ScrollReveal
@@ -54,6 +66,23 @@ const Home = () => {
     }, []);
 
     return (<>
+        {/* 🔥 Scroll progress bar at top */}
+        <div
+            style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                height: "4px", // thinner for professional look
+                width: `${scrollWidth}%`,
+                background: "linear-gradient(90deg, #ff4b2b, #ffcc00)", // modern red→yellow
+                backgroundSize: "200% 100%",
+                animation: "lavaFlow 6s linear infinite", // subtle slow movement
+                boxShadow: "0 0 6px rgba(255, 75, 43, 0.6), 0 0 12px rgba(255, 204, 0, 0.4)",
+                borderRadius: "0 4px 4px 0", // rounded right end
+                zIndex: 1000,
+                transition: "width 0.25s ease-out",
+            }}
+        ></div>
         {/* --------------------- HEADER --------------------- */}
         <header className="header">
             <a href="#home" className="logo">My Portfolio</a>
@@ -387,10 +416,11 @@ const Home = () => {
 
         <section className="thankyou-section" id="thankyou">
             <div className="thankyou-container">
-                <h2 className="thankyou-title">Thank You for Visiting!</h2>
+                <h2 className="thankyou-title">Thanks again for scrolling through my work✨ </h2>
                 <p className="thankyou-text">
-                    I appreciate your time and interest in exploring my portfolio.
-                    Feel free to connect with me on LinkedIn, GitHub, or just say hello. 🚀
+                    Thanks again for exploring my portfolio <br />
+                    I’d love to connect, collaborate, or just chat over coffee ☕.
+                    Feel free to reach out anytime!
                 </p>
                 <div className="thankyou-links">
                     <a href="https://github.com/Soumyajeet2004
@@ -400,10 +430,14 @@ const Home = () => {
                     <a href="https://www.linkedin.com/in/soumyajeet-saha-2b281125a" target="_blank" rel="noreferrer">
                         LinkedIn
                     </a>
-                    <a href="https://drive.google.com/file/d/1p63Ep5lU7rW1cRMhJhgE1OS8q3TwEo56/view?usp=sharing" download>
-                        Download Resume
+
+                    <a href="mailto:soumyajeetsahakolkata04@gmail.com?subject=Hello%20Soumyajeet&body=Hi%20there!" target="_blank" rel="noreferrer">
+                        Say Hello
                     </a>
                 </div>
+            </div>
+            <div className="btt" style={{ marginTop: '50px', textAlign: 'center' }}>
+                <a href="#home">⬆ Back to Top</a>
             </div>
         </section>
 

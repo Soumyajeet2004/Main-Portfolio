@@ -14,9 +14,9 @@ import amazon from '../assets/Amazonclone.png';
 import rock from '../assets/rock_paper_scissors__2x.png';
 import tic from '../assets/7.webp';
 const Home = () => {
-
+    const typedRef = useRef(null);
     useEffect(() => {
-        // ========== SCROLL REVEAL ==========
+        // ✅ ScrollReveal
         ScrollReveal({
             distance: "70px",
             duration: 2000,
@@ -31,6 +31,26 @@ const Home = () => {
             origin: "right",
         });
         ScrollReveal().reveal(".about-img", { origin: "left" });
+
+        // ✅ Typed.js
+        typedRef.current = new Typed(".all-texts", {
+            strings: [
+                'Full-Stack Web Developer',
+                'Passionate Coder',
+                'Engineering Student'
+            ],
+            typeSpeed: 60,
+            backSpeed: 40,
+            backDelay: 900,
+            loop: true,
+        });
+
+        // ✅ Cleanup
+        return () => {
+            if (typedRef.current) {
+                typedRef.current.destroy();
+            }
+        };
     }, []);
 
     return (<>
@@ -41,6 +61,7 @@ const Home = () => {
             <nav className="navbar">
                 <a href="#home" className="active">Home</a>
                 <a href="#about">About</a>
+                <a href="#exp">Experiences</a>
                 <a href="#services">Education & Certifications</a>
                 <a href="#portfolio">Project</a>
             </nav>
@@ -125,6 +146,31 @@ const Home = () => {
             </div>
         </section>
 
+        {/* --------------------- Experiences --------------------- */}<section className="services" id="exp">
+            <h2 className="heading">My <span>Professional experiences</span></h2>
+            <div className="row">
+                <h1 className="big-4">Internships</h1>
+                <div className="underline"></div>
+            </div>
+
+            <div className="services-container">
+                <div className="services-box bte">
+                    <i className="fa-solid fa-graduation-cap"></i>
+                    <h3>Full Stack Development Intern</h3>
+                    <div className="edu">
+                        <p><strong>Company:</strong> Ardent Computech Pvt Ltd</p>
+                        <p><strong>Duration:</strong> Apr 2025 – Aug 2025</p>
+                        <p><strong>Location:</strong> Kolkata, India</p>
+                        <ul>
+                            <li>Completed a structured, hands-on training program focused on <strong>cloud-based full-stack development (MERN stack)</strong>.</li>
+                            <li>Developed and deployed scalable web applications with <strong>AI/ML integration</strong> and <strong>RESTful APIs</strong>.</li>
+                        </ul>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1qmxoYLqhzqIg6JTX31GeCyWecISJPQV7/view?usp=sharing" className="btn">Read More</a>
+                </div>
+            </div>
+        </section>
+
         {/* --------------------- SERVICES --------------------- */}
         <section className="services" id="services">
             <h2 className="heading">My <span>Academic Background & Certifications</span></h2>
@@ -171,7 +217,8 @@ const Home = () => {
                     <a href="https://drive.google.com/file/d/1dIGE6827mAHgFzK30_s1z9TvcXDrGXMd/view?usp=drivesdk" className="btn">Read More</a>
                 </div>
             </div>
-
+        </section>
+        <section className="services" id="services">
             <div className="row">
                 <h1 className="big-4">Certifications</h1>
                 <div className="underline"></div>
@@ -185,7 +232,7 @@ const Home = () => {
                         <p>Issuing Organization : ARDENT COMPUTECH PVT LTD</p>
                         <p>Duration : April 2025-August 2025</p>
                     </div>
-                    <a href="https://media.licdn.com/dms/image/v2/D562DAQEi9ifuwvkURQ/profile-treasury-image-shrink_800_800/B56ZifSqGAHcAY-/0/1755019127347?e=1755964800&v=beta&t=-jlyeBwGJ5L_SYAyn_pttg-Wx4H8VNkg-LtJR1Te6QM" className="btn">Read More</a>
+                    <a href="https://drive.google.com/file/d/1qmxoYLqhzqIg6JTX31GeCyWecISJPQV7/view?usp=sharing" className="btn">Read More</a>
                 </div>
 
                 <div className="services-box">
@@ -195,7 +242,7 @@ const Home = () => {
                         <p>Issuing Organization : ARDENT COMPUTECH PVT LTD</p>
                         <p>Issued : March 2025</p>
                     </div>
-                    <a href="https://media.licdn.com/dms/image/v2/D562DAQGJpi6uw7AFnw/profile-treasury-image-shrink_800_800/B56ZX13PH3GsAc-/0/1743586655682" className="btn">Read More</a>
+                    <a href="https://drive.google.com/file/d/1xRyGM2A4XjfHrZ8XKreH7pXhB7-CD-sN/view?usp=sharing" className="btn">Read More</a>
                 </div>
 
                 <div className="services-box">
@@ -205,7 +252,7 @@ const Home = () => {
                         <p>Issuing Organization : FORAGE</p>
                         <p>Issued : April 2025</p>
                     </div>
-                    <a href="https://media.licdn.com/dms/image/v2/D562DAQFFSGpIJHMUvA/profile-treasury-image-shrink_800_800/B56ZXx37P5GsAY" className="btn">Read More</a>
+                    <a href="https://drive.google.com/file/d/1xNj_r5rN5cQzZa32IJEkMQD0kRD3-qTE/view?usp=sharing" className="btn">Read More</a>
                 </div>
 
                 <div className="services-box">

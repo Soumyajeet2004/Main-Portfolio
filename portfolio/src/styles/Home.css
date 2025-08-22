@@ -270,17 +270,18 @@ span {
     margin: 2rem 0 3rem;
 }
 
+
 /* ..............................EDUCATION & CERTIFICATION....................................*/
 .services {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 3rem;
-}
 
+}
 .services h2 {
     margin-bottom: 4rem;
+    position: inherit;
 }
 
 .row {
@@ -418,6 +419,36 @@ span {
 .certificate-container .services-box h3 {
     font-size: 2.4rem;
 }
+/* ..............................professional experiences....................................*/
+.edu ul {
+    list-style: none;
+    padding-left: 20px;
+    border-left: 2px solid #00f7ff;
+}
+
+.edu ul li {
+    margin: 15px 0;
+    position: relative;
+    padding-left: 15px;
+    font-size: 2rem;
+}
+.services-container h3{
+    font-size: 4rem;
+    
+}
+.services-container strong{
+    color: #00e0ff;
+}
+.edu ul li::before {
+    content: "";
+    position: absolute;
+    left: -9px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background: #00f7ff;
+    border-radius: 50%;
+}
 
 /* ..............................PROJECTS....................................*/
 
@@ -502,7 +533,7 @@ span {
     color: white;
 }
 
-/* ..............................CONTACT....................................*/
+/* ..............................THANKYOU....................................*/
 .thankyou-section {
     background: #0b0b20;
     /* Dark background */
@@ -810,4 +841,15 @@ span {
     .contact form .input-box input {
         width: 100%;
     }
+}
+
+.all-texts {
+    font-weight: 600;
+    background: linear-gradient(90deg, #00e0ff, #ff00aa, #fffb00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+        0 0 2px rgba(0, 224, 255, 0.3),
+        0 0 4px rgba(255, 0, 170, 0.2),
+        0 0 6px rgba(138, 43, 226, 0.2);
 }

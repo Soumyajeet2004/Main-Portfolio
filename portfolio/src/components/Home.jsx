@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import Typed from 'typed.js';
 import { useForm } from "react-hook-form";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
-
+import { FaHtml5, FaCss3Alt, FaJs, FaWordpress, FaVideo, FaUserFriends } from "react-icons/fa";
+import { SiCanva, SiWix } from "react-icons/si";
 import ScrollReveal from 'scrollreveal';
 import '../styles/Home.css';
 import profileimage1 from '../assets/20240706_133317.png';
@@ -90,6 +91,7 @@ const Home = () => {
             <nav className="navbar">
                 <a href="#home" className="active">Home</a>
                 <a href="#about">About</a>
+                <a href="#skills">Skills</a>
                 <a href="#exp">Experiences</a>
                 <a href="#services">Education & Certifications</a>
                 <a href="#portfolio">Project</a>
@@ -123,7 +125,7 @@ const Home = () => {
             <div className="about-img">
                 <img src={profileimage2} alt="" />
                 <div className="skill-mf">
-                    <p className="title-s">Programming Skills</p>
+                    <p className="title-s">Technical Skills</p>
 
                     <span className="pull-right">Web Development</span> <span className="pull-rights">85%</span>
                     <div className="progress">
@@ -173,7 +175,147 @@ const Home = () => {
             </div>
         </section>
 
-        {/* --------------------- Experiences --------------------- */}<section className="services" id="exp">
+        {/* --------------------- Skills --------------------- */}
+        <section className="skills-section" id="skills">
+            <h2 className="heading">My Technical <span>Skills</span></h2>
+            <div className="skills-grid">
+                {/* Left Column */}
+                <div>
+                    <h3 className="skills-subtitle">Web Development Skills</h3>
+                    <div className="underli"></div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-brands fa-react" style={{ color: "#27b6f8" }}></i></span>
+                            <span className="skill-name">React.js</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-brands fa-node" style={{ color: "#00f735" }}></i></span>
+                            <span className="skill-name">Node.js</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-solid fa-server" style={{ color: "#b100f7" }}></i></span>
+                            <span className="skill-name">Express.js</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-solid fa-database" style={{ color: "#00cbfd" }}></i></span>
+                            <span className="skill-name">MongoDB</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-solid fa-code-branch api-icon" style={{ color: "#f70000" }}></i></span>
+                            <span className="skill-name">Rest APIs</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fab fa-html5" style={{ color: "#E34F26" }}></i></span>
+                            <span className="skill-name">HTML</span>
+                        </div>
+                    </div>
+
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fab fa-css3-alt" style={{ color: "#1572B6" }}></i></span>
+                            <span className="skill-name">CSS</span>
+                        </div>
+                    </div>
+
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fab fa-js-square" style={{ color: "#F7DF1E" }}></i></span>
+                            <span className="skill-name">JavaScript</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-brands fa-bootstrap" style={{ color: "#493cff" }}></i></span>
+                            <span className="skill-name">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="devicon-tailwindcss-original colored text-4xl" style={{ color: "#00c8fa" }}></i></span>
+                            <span className="skill-name">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Right Column */}
+                <div>
+                    <h3 className="skills-subtitle">Programming Languages</h3>
+                    <div className="underli"></div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-brands fa-java" style={{ color: "#ffffff" }}></i></span>
+                            <span className="skill-name">Java</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fab fa-js-square" style={{ color: "#F7DF1E" }}></i></span>
+                            <span className="skill-name">JavaScript</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-brands fa-python" style={{ color: "#0084ff" }}></i></span>
+                            <span className="skill-name">Python</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-brands fa-c" style={{ color: "#ff7b00" }}></i></span>
+                            <span className="skill-name">C Language</span>
+                        </div>
+                    </div>
+                    <div>
+                    <h3 className="skills-subtitle">Development Tools</h3>
+                    <div className="underli"></div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-brands fa-git" style={{ color: "#ffae00" }}></i></span>
+                            <span className="skill-name">Git</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-brands fa-github" style={{ color: "#ffffff" }}></i></span>
+                            <span className="skill-name">GitHub</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="devicon-postman-plain colored" style={{ color: "#ff4901" }}></i></span>
+                            <span className="skill-name">Postman</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-solid fa-code" style={{ color: "#0083fd" }}></i></span>
+                            <span className="skill-name">VS Code</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-solid fa-v" style={{ color: "#65fd00" }}></i></span>
+                            <span className="skill-name">Vercel</span>
+                        </div>
+                    </div>
+                </div>
+                    
+                </div>
+                
+            </div>
+        </section>
+
+        {/* --------------------- Experiences --------------------- */}<section className="exp" id="exp">
             <h2 className="heading">My <span>Professional Experiences</span></h2>
             <div className="row">
                 <h1 className="big-4">Internships</h1>

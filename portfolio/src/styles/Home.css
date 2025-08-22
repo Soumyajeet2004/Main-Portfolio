@@ -236,7 +236,7 @@ span {
 .skill-mf .progress .progress-bar {
     height: 100%;
     border-radius: 2rem;
-    background: linear-gradient(90deg, #ff0000, #ffcc00, #ff0000);
+    background: linear-gradient(90deg, #ff0000, #1100ff, #ff0000);
     background-size: 300% 100%;
     width: 0;  /* controlled by inline style */
     position: relative;
@@ -247,7 +247,7 @@ span {
                 0 0 30px rgba(255, 100, 0, 0.9),
                 0 0 45px rgba(255, 200, 0, 0.8);
     
-    animation: gradientMove 2.5s linear infinite;
+    animation: gradientMove 2s linear infinite;
 }
 
 /* flowing molten liquid waves */
@@ -261,12 +261,12 @@ span {
     height: 200%;
     background: radial-gradient(circle, rgba(255,255,255,0.6) 25%, transparent 70%);
     border-radius: 45%;
-    animation: wave 4s linear infinite;
+    animation: wave 3s linear infinite;
     mix-blend-mode: overlay;
 }
 
 .skill-mf .progress .progress-bar::after {
-    animation-duration: 6s; /* different speed for realism */
+    animation-duration: 3s; /* different speed for realism */
     opacity: 1;
 }
 

@@ -74,7 +74,7 @@ const Home = () => {
                 <h1>I'm Soumyajeet Saha</h1>
                 <h3><span className="all-texts"></span></h3>
                 <p className="p">
-                    Aspiring software engineer currently in the 7th semester of B.Tech in Computer Science and Engineering, with hands-on experience in MERN stack development and strong programming fundamentals. Quick to learn new technologies, with solid problem-solving skills, effective communication, and a collaborative mindset. Passionate about building scalable web applications and growing as a full-stack developer .
+                    Aspiring software engineer currently in the 7th semester of B.Tech in Computer Science and Engineering, with hands-on experience in MERN stack development and strong programming fundamentals. Quick to learn new technologies, with solid problem-solving skills, effective communication, and a collaborative mindset.
                 </p>
                 <div className="social-media">
                     <a href="https://www.facebook.com/profile.php?id=100074568897600&mibextid=ZbWKwL"><i className="fa-brands fa-facebook"></i></a>
@@ -101,7 +101,7 @@ const Home = () => {
                         <div className="progress-bar" style={{ width: "85%" }}></div>
                     </div>
 
-                    <span className="pull-right">Data Structure and Algorithm</span> <span className="pull-rights">85%</span>
+                    <span className="pull-right">Data Structure & Algorithms</span> <span className="pull-rights">85%</span>
                     <div className="progress">
                         <div className="progress-bar" style={{ width: "85%" }}></div>
                     </div>
@@ -134,9 +134,9 @@ const Home = () => {
 
                 <ul className="ul">
                     <li className="uls"><p>Address :<span> Kolkata , West Bengal , India</span></p></li>
-                    <li className="uls"><p>Education :<span> B.Tech In Computer Science Engineering</span></p></li>
-                    <li className="uls"><p>Language :<span> Bengali , English</span></p></li>
-                    <li className="uls"><p>Interest :<span> Traveling, Travel Photography</span></p></li>
+                    <li className="uls"><p>Education :<span> B.Tech In Computer Science & Engineering</span></p></li>
+                    <li className="uls"><p>Language :<span> English , Bengali , Hindi</span></p></li>
+                    <li className="uls"><p>Interest :<span> Traveling , Photography</span></p></li>
                     <li className="uls"><p>Sports :<span> Cricket , Football</span></p></li>
                 </ul>
 
@@ -181,7 +181,7 @@ const Home = () => {
             <div className="services-container">
                 <div className="services-box bte">
                     <i className="fa-solid fa-graduation-cap"></i>
-                    <h3>B.Tech In Computer Science Engineering</h3>
+                    <h3>B.Tech In Computer Science and Engineering</h3>
                     <div className="edu">
                         <p>University : MAKAUT UNIVERSITY</p>
                         <p>College : Dr. Sudhir Chandra Sur Institute Of Technology And Sports Complex</p>

@@ -225,18 +225,66 @@ span {
 }
 
 .skill-mf .progress {
-    /* background-color: #cde1f8; */
     margin: .5rem 0 1.2rem 0;
     height: 1.3rem;
-    background-color: #fff;
+    background-color: #fff;   /* keep white background */
     border-radius: 2rem;
+    overflow: hidden;
+    position: relative;
 }
 
 .skill-mf .progress .progress-bar {
-    height: 1.3rem;
-    background-color: rgb(255, 0, 85);
+    height: 100%;
     border-radius: 2rem;
+    background: linear-gradient(90deg, #ff0000, #ffcc00, #ff0000);
+    background-size: 300% 100%;
+    width: 0;  /* controlled by inline style */
+    position: relative;
+    overflow: hidden;
+
+    /* STRONG glow */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 1),
+                0 0 30px rgba(255, 100, 0, 0.9),
+                0 0 45px rgba(255, 200, 0, 0.8);
+    
+    animation: gradientMove 2.5s linear infinite;
 }
+
+/* flowing molten liquid waves */
+.skill-mf .progress .progress-bar::before,
+.skill-mf .progress .progress-bar::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.6) 25%, transparent 70%);
+    border-radius: 45%;
+    animation: wave 4s linear infinite;
+    mix-blend-mode: overlay;
+}
+
+.skill-mf .progress .progress-bar::after {
+    animation-duration: 6s; /* different speed for realism */
+    opacity: 1;
+}
+
+/* faster gradient shift */
+@keyframes gradientMove {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* faster wave rotation */
+@keyframes wave {
+    0%   { transform: translateX(0) translateY(0) rotate(0deg); }
+    100% { transform: translateX(-30%) translateY(-15%) rotate(360deg); }
+}
+
+
+
 
 .ul {
     margin-top: 4rem;

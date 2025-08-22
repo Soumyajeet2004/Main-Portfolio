@@ -36,8 +36,8 @@ const Home = () => {
         typedRef.current = new Typed(".all-texts", {
             strings: [
                 'Full-Stack Web Developer',
+                'Aspiring Software Engineer',
                 'Passionate Coder',
-                'Engineering Student'
             ],
             typeSpeed: 60,
             backSpeed: 40,
@@ -74,9 +74,7 @@ const Home = () => {
                 <h1>I'm Soumyajeet Saha</h1>
                 <h3><span className="all-texts"></span></h3>
                 <p className="p">
-                    I am an enthusiastic engineering student deeply passionate about coding and software development.
-                    With a keen eye for detail and a love for problem-solving, I enjoy delving into complex algorithms
-                    and creating elegant solutions.
+                    Aspiring software engineer currently in the 7th semester of B.Tech in Computer Science and Engineering, with hands-on experience in MERN stack development and strong programming fundamentals. Quick to learn new technologies, with solid problem-solving skills, effective communication, and a collaborative mindset. Passionate about building scalable web applications and growing as a full-stack developer .
                 </p>
                 <div className="social-media">
                     <a href="https://www.facebook.com/profile.php?id=100074568897600&mibextid=ZbWKwL"><i className="fa-brands fa-facebook"></i></a>
@@ -98,9 +96,9 @@ const Home = () => {
                 <div className="skill-mf">
                     <p className="title-s">Programming Skills</p>
 
-                    <span className="pull-right">Web Development</span> <span className="pull-rights">80%</span>
+                    <span className="pull-right">Web Development</span> <span className="pull-rights">85%</span>
                     <div className="progress">
-                        <div className="progress-bar" style={{ width: "80%" }}></div>
+                        <div className="progress-bar" style={{ width: "85%" }}></div>
                     </div>
 
                     <span className="pull-right">Data Structure and Algorithm</span> <span className="pull-rights">85%</span>
@@ -147,7 +145,7 @@ const Home = () => {
         </section>
 
         {/* --------------------- Experiences --------------------- */}<section className="services" id="exp">
-            <h2 className="heading">My <span>Professional experiences</span></h2>
+            <h2 className="heading">My <span>Professional Experiences</span></h2>
             <div className="row">
                 <h1 className="big-4">Internships</h1>
                 <div className="underline"></div>

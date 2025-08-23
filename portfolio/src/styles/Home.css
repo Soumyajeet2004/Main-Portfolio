@@ -108,13 +108,21 @@ section {
     color: var(--text-color);
     display: none;
 }
+
 .all-texts {
-     font-weight: 600;
-    background: linear-gradient(90deg, #ff0000, #eeff00);
+    font-weight: 600;
+    background: linear-gradient(90deg, #00d4ff,
+            /* soft cyan */
+            #ea00ff,
+            /* indigo/blue */
+            #00ff95);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 4px rgba(0, 224, 255, 0.3); /* removed glow for clean look */
+    -webkit-text-fill-color:transparent;
+    animation: gradientShift 8s ease infinite;
+    text-shadow: 0 0 4px rgba(0, 224, 255, 0.3);
+    /* removed glow for clean look */
 }
+
 .highlight-name {
     background: #00e0ff;
     -webkit-background-clip: text;
@@ -1130,4 +1138,3 @@ span {
         width: 100%;
     }
 }
-

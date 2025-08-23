@@ -110,17 +110,10 @@ section {
 }
 
 .all-texts {
-    font-weight: 600;
-    background: linear-gradient(90deg, #00d4ff,
-            /* soft cyan */
-            #ea00ff,
-            /* indigo/blue */
-            #00ff95);
+     font-weight: 600;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
     -webkit-background-clip: text;
-    -webkit-text-fill-color:transparent;
-    animation: gradientShift 8s ease infinite;
-    text-shadow: 0 0 4px rgba(0, 224, 255, 0.3);
-    /* removed glow for clean look */
+    -webkit-text-fill-color: transparent;
 }
 
 .highlight-name {

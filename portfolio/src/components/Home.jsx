@@ -12,7 +12,10 @@ import amazon from '../assets/Amazonclone.png';
 import rock from '../assets/rock_paper_scissors__2x.png';
 import tic from '../assets/7.webp';
 const Home = () => {
+    const [isOpen, setIsOpen] = useState(false);
     const [scrollWidth, setScrollWidth] = useState(0);
+    const [showTopBtn, setShowTopBtn] = useState(false);
+
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -62,6 +65,20 @@ const Home = () => {
             }
         };
     }, []);
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowTopBtn(true);
+            } else {
+                setShowTopBtn(false);
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     return (<>
         {/* 🔥 Scroll progress bar at top */}
@@ -84,8 +101,15 @@ const Home = () => {
         {/* --------------------- HEADER --------------------- */}
         <header className="header">
             <a href="#home" className="logo">My Portfolio</a>
-            <i className="fa-solid fa-bars" id="menu-icon"></i>
-            <nav className="navbar">
+            {/* Hamburger Icon */}
+            <i
+                className="fa-solid fa-bars"
+                id="menu-icon"
+                onClick={() => setIsOpen(!isOpen)}
+            ></i>
+
+            {/* Navbar */}
+            <nav className={`navbar ${isOpen ? "open" : ""}`}>
                 <a href="#home" className="active">Home</a>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
@@ -94,7 +118,12 @@ const Home = () => {
                 <a href="#portfolio">Projects</a>
             </nav>
         </header>
-
+        {/* Back to Top Button */}
+        {showTopBtn && (
+            <button className="back-to-top" onClick={scrollToTop}>
+                <i className="fa-solid fa-arrow-up"></i>
+            </button>
+        )}
         {/* --------------------- HOME --------------------- */}
         <section className="home" id="home">
             <div className="home-content">

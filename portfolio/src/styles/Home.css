@@ -110,7 +110,7 @@ section {
 }
 
 .all-texts {
-     font-weight: 600;
+    font-weight: 600;
     background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -121,6 +121,68 @@ section {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: lavaFlow 10s linear infinite;
+}
+
+/* Hide Menu Icon on Desktop */
+#menu-icon {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    display: none;
+    cursor: pointer;
+}
+
+/* -------- MOBILE VIEW -------- */
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 10%;
+        background: var(--bg-color);
+        width: 200px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        display: none;
+        /* hidden by default */
+    }
+
+    .navbar.open {
+        display: flex;
+        /* show on toggle */
+    }
+
+    .navbar a {
+        margin: 1rem 0;
+        font-size: 1.3rem;
+        width: 100%;
+    }
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #00e0ff);
+    color: #000000;
+    border: none;
+    padding: 11px 15px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 200;
+}
+
+.back-to-top:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #00ff2a);
 }
 
 /* ..............................HOME....................................*/

@@ -16,6 +16,7 @@ const Home = () => {
     const [scrollWidth, setScrollWidth] = useState(0);
     const [showTopBtn, setShowTopBtn] = useState(false);
 
+    // ----------------- Scroll Progress Bar ---------------------
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -28,6 +29,7 @@ const Home = () => {
     }, []);
 
     const typedRef = useRef(null);
+    // ✅ ScrollReveal & Typed.js Initialization
     useEffect(() => {
         // ✅ ScrollReveal
         ScrollReveal({
@@ -65,6 +67,8 @@ const Home = () => {
             }
         };
     }, []);
+
+    // ----------------- Back to Top Button ---------------------
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 300) {
@@ -79,7 +83,6 @@ const Home = () => {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
-
     return (<>
         {/* 🔥 Scroll progress bar at top */}
         <div
@@ -98,6 +101,7 @@ const Home = () => {
                 transition: "width 0.25s ease-out",
             }}
         ></div>
+
         {/* --------------------- HEADER --------------------- */}
         <header className="header">
             <a href="#home" className="logo">My Portfolio</a>
@@ -118,12 +122,14 @@ const Home = () => {
                 <a href="#portfolio">Projects</a>
             </nav>
         </header>
-        {/* Back to Top Button */}
+
+        {/* ----------------- Back to Top Button --------------------- */}
         {showTopBtn && (
             <button className="back-to-top" onClick={scrollToTop}>
                 <i className="fa-solid fa-arrow-up"></i>
             </button>
         )}
+
         {/* --------------------- HOME --------------------- */}
         <section className="home" id="home">
             <div className="home-content">
@@ -586,6 +592,7 @@ const Home = () => {
             </div>
         </section>
 
+        {/* --------------------- THANK YOU --------------------- */}
         <section className="thankyou-section" id="thankyou">
             <div className="thankyou-container">
                 <h2 className="thankyou-title">Thanks again for scrolling through my work✨ </h2>
@@ -607,9 +614,6 @@ const Home = () => {
                         Say Hello
                     </a>
                 </div>
-            </div>
-            <div className="btt" style={{ marginTop: '50px', textAlign: 'center' }}>
-                <a href="#home">⬆ Back to Top</a>
             </div>
         </section>
 

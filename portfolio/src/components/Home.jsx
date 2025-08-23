@@ -1,10 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Typed from 'typed.js';
-import { useForm } from "react-hook-form";
-import HCaptcha from '@hcaptcha/react-hcaptcha';
-import { FaHtml5, FaCss3Alt, FaJs, FaWordpress, FaVideo, FaUserFriends } from "react-icons/fa";
-import { SiCanva, SiWix } from "react-icons/si";
 import ScrollReveal from 'scrollreveal';
+import { SiJsonwebtokens } from "react-icons/si";
 import '../styles/Home.css';
 import profileimage1 from '../assets/20240706_133317.png';
 import profileimage2 from '../assets/WhatsApp Image 2025-08-17 at 11.35.49_269f2353.jpg';
@@ -50,7 +47,7 @@ const Home = () => {
             strings: [
                 'Full-Stack Web Developer',
                 'Aspiring Software Engineer',
-                'Passionate Coder',
+                "Backend Engineering Enthusiast",
             ],
             typeSpeed: 60,
             backSpeed: 40,
@@ -73,7 +70,7 @@ const Home = () => {
                 position: "fixed",
                 top: 0,
                 left: 0,
-                height: "4px", // thinner for professional look
+                height: "4.5px", // thinner for professional look
                 width: `${scrollWidth}%`,
                 background: "linear-gradient(90deg, #ff4b2b, #ffcc00)", // modern red→yellow
                 backgroundSize: "200% 100%",
@@ -94,7 +91,7 @@ const Home = () => {
                 <a href="#skills">Skills</a>
                 <a href="#exp">Experiences</a>
                 <a href="#services">Education & Certifications</a>
-                <a href="#portfolio">Project</a>
+                <a href="#portfolio">Projects</a>
             </nav>
         </header>
 
@@ -102,7 +99,7 @@ const Home = () => {
         <section className="home" id="home">
             <div className="home-content">
                 <h3>Hello !</h3>
-                <h1>I'm Soumyajeet Saha</h1>
+                <h1>I'm <span className="highlight-name">Soumyajeet Saha</span></h1>
                 <h3><span className="all-texts"></span></h3>
                 <p className="p">
                     Aspiring software engineer currently in the 7th semester of B.Tech in Computer Science and Engineering, with hands-on experience in MERN stack development and strong programming fundamentals. Quick to learn new technologies, with solid problem-solving skills, effective communication, and a collaborative mindset.
@@ -131,15 +128,14 @@ const Home = () => {
                     <div className="progress">
                         <div className="progress-bar" style={{ width: "85%" }}></div>
                     </div>
-
                     <span className="pull-right">Data Structure & Algorithms</span> <span className="pull-rights">85%</span>
                     <div className="progress">
                         <div className="progress-bar" style={{ width: "85%" }}></div>
                     </div>
 
-                    <span className="pull-right">Java</span> <span className="pull-rights">90%</span>
+                    <span className="pull-right">Java</span> <span className="pull-rights">75%</span>
                     <div className="progress">
-                        <div className="progress-bar" style={{ width: "90%" }}></div>
+                        <div className="progress-bar" style={{ width: "75%" }}></div>
                     </div>
 
                     <span className="pull-right">JavaScript</span> <span className="pull-rights">85%</span>
@@ -147,9 +143,9 @@ const Home = () => {
                         <div className="progress-bar" style={{ width: "85%" }}></div>
                     </div>
 
-                    <span className="pull-right">C</span> <span className="pull-rights">95%</span>
+                    <span className="pull-right">DBMS</span> <span className="pull-rights">80%%</span>
                     <div className="progress">
-                        <div className="progress-bar" style={{ width: "95%" }}></div>
+                        <div className="progress-bar" style={{ width: "80%" }}></div>
                     </div>
                 </div>
             </div>
@@ -160,7 +156,6 @@ const Home = () => {
                     I am an aspiring engineering student with a deep passion for coding, particularly in frontend development.
                     My ambition is to become a successful software engineer known for crafting intuitive user interfaces and robust applications.
                     Proficient in Java programming, I thrive on team-based problem-solving, leveraging collaborative efforts to tackle complex challenges.
-                    With a focus on continuous improvement, I aim to innovate and deliver impactful solutions in the dynamic realm of software development.
                 </p>
 
                 <ul className="ul">
@@ -168,7 +163,7 @@ const Home = () => {
                     <li className="uls"><p>Education :<span> B.Tech In Computer Science & Engineering</span></p></li>
                     <li className="uls"><p>Language :<span> English , Bengali , Hindi</span></p></li>
                     <li className="uls"><p>Interest :<span> Traveling , Photography</span></p></li>
-                    <li className="uls"><p>Sports :<span> Cricket , Football</span></p></li>
+                    <li className="uls"><p>Sports :<span> Football , Cricket </span></p></li>
                 </ul>
 
                 <a href="https://www.linkedin.com/in/soumyajeet-saha-2b281125a" className="btn">LinkedIn Profile</a>
@@ -197,13 +192,13 @@ const Home = () => {
                     </div>
                     <div className="skill-item">
                         <div className="skill-header">
-                            <span className="skill-icon"><i className="fa-solid fa-server" style={{ color: "#b100f7" }}></i></span>
+                            <span className="skill-icon"><i className="devicon-express-original text-4xl" style={{ color: "#ffffff" }}></i></span>
                             <span className="skill-name">Express.js</span>
                         </div>
                     </div>
                     <div className="skill-item">
                         <div className="skill-header">
-                            <span className="skill-icon"><i className="fa-solid fa-database" style={{ color: "#00cbfd" }}></i></span>
+                            <span className="skill-icon"><i className="devicon-mongodb-plain text-6xl text-gray-700" style={{ color: "#00fd0d" }}></i></span>
                             <span className="skill-name">MongoDB</span>
                         </div>
                     </div>
@@ -211,6 +206,24 @@ const Home = () => {
                         <div className="skill-header">
                             <span className="skill-icon"><i className="fa-solid fa-code-branch api-icon" style={{ color: "#f70000" }}></i></span>
                             <span className="skill-name">Rest APIs</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><SiJsonwebtokens style={{ color: "#00b894", fontSize: "2.69rem" }} /></span>
+                            <span className="skill-name">JWT / Authentication</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="fa-brands fa-bootstrap" style={{ color: "#493cff" }}></i></span>
+                            <span className="skill-name">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-icon"><i className="devicon-tailwindcss-original colored text-4xl" style={{ color: "#00c8fa" }}></i></span>
+                            <span className="skill-name">Tailwind CSS</span>
                         </div>
                     </div>
                     <div className="skill-item">
@@ -233,18 +246,6 @@ const Home = () => {
                             <span className="skill-name">JavaScript</span>
                         </div>
                     </div>
-                    <div className="skill-item">
-                        <div className="skill-header">
-                            <span className="skill-icon"><i className="fa-brands fa-bootstrap" style={{ color: "#493cff" }}></i></span>
-                            <span className="skill-name">Bootstrap</span>
-                        </div>
-                    </div>
-                    <div className="skill-item">
-                        <div className="skill-header">
-                            <span className="skill-icon"><i className="devicon-tailwindcss-original colored text-4xl" style={{ color: "#00c8fa" }}></i></span>
-                            <span className="skill-name">Tailwind CSS</span>
-                        </div>
-                    </div>
                 </div>
 
                 {/* Right Column */}
@@ -253,7 +254,7 @@ const Home = () => {
                     <div className="underli"></div>
                     <div className="skill-item">
                         <div className="skill-header">
-                            <span className="skill-icon"><i className="fa-brands fa-java" style={{ color: "#ffffff" }}></i></span>
+                            <span className="skill-icon"><i className="fa-brands fa-java" style={{ color: "#ff0000" }}></i></span>
                             <span className="skill-name">Java</span>
                         </div>
                     </div>
@@ -265,53 +266,52 @@ const Home = () => {
                     </div>
                     <div className="skill-item">
                         <div className="skill-header">
-                            <span className="skill-icon"><i className="fa-brands fa-python" style={{ color: "#0084ff" }}></i></span>
+                            <span className="skill-icon"><i className="devicon-python-plain colored" style={{ color: "#00a2ff" }}></i></span>
                             <span className="skill-name">Python</span>
                         </div>
                     </div>
                     <div className="skill-item">
                         <div className="skill-header">
-                            <span className="skill-icon"><i className="fa-brands fa-c" style={{ color: "#ff7b00" }}></i></span>
+                            <span className="skill-icon"><i className="devicon-c-plain colored text-5xl" style={{ color: "#0066ff" }}></i></span>
                             <span className="skill-name">C Language</span>
                         </div>
                     </div>
                     <div>
-                    <h3 className="skills-subtitle">Development Tools</h3>
-                    <div className="underli"></div>
-                    <div className="skill-item">
-                        <div className="skill-header">
-                            <span className="skill-icon"><i className="fa-brands fa-git" style={{ color: "#ffae00" }}></i></span>
-                            <span className="skill-name">Git</span>
+                        <h3 className="skills-subtitle">Development Tools</h3>
+                        <div className="underli"></div>
+                        <div className="skill-item">
+                            <div className="skill-header">
+                                <span className="skill-icon"><i className="devicon-git-plain colored" style={{ color: "#ff5e00" }}></i></span>
+                                <span className="skill-name">Git</span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="skill-item">
-                        <div className="skill-header">
-                            <span className="skill-icon"><i className="fa-brands fa-github" style={{ color: "#ffffff" }}></i></span>
-                            <span className="skill-name">GitHub</span>
+                        <div className="skill-item">
+                            <div className="skill-header">
+                                <span className="skill-icon"><i className="fa-brands fa-github" style={{ color: "#ffffff" }}></i></span>
+                                <span className="skill-name">GitHub</span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="skill-item">
-                        <div className="skill-header">
-                            <span className="skill-icon"><i className="devicon-postman-plain colored" style={{ color: "#ff4901" }}></i></span>
-                            <span className="skill-name">Postman</span>
+                        <div className="skill-item">
+                            <div className="skill-header">
+                                <span className="skill-icon"><i className="devicon-postman-plain colored" style={{ color: "#ff4901" }}></i></span>
+                                <span className="skill-name">Postman</span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="skill-item">
-                        <div className="skill-header">
-                            <span className="skill-icon"><i className="fa-solid fa-code" style={{ color: "#0083fd" }}></i></span>
-                            <span className="skill-name">VS Code</span>
+                        <div className="skill-item">
+                            <div className="skill-header">
+                                <span className="skill-icon"><i className="devicon-vscode-plain colored text-5xl" style={{ color: "#008cff" }}></i></span>
+                                <span className="skill-name">VS Code</span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="skill-item">
-                        <div className="skill-header">
-                            <span className="skill-icon"><i className="fa-solid fa-v" style={{ color: "#65fd00" }}></i></span>
-                            <span className="skill-name">Vercel</span>
+                        <div className="skill-item">
+                            <div className="skill-header">
+                                <span className="skill-icon"><i className="devicon-vercel-original colored" style={{ color: "#ffffff" }}></i></span>
+                                <span className="skill-name">Vercel</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                    
-                </div>
-                
+
             </div>
         </section>
 
@@ -498,12 +498,13 @@ const Home = () => {
 
         {/* --------------------- PORTFOLIO --------------------- */}
         <section className="portfolio" id="portfolio">
-            <h2 className="heading">My Latest <span>Projects</span></h2>
+            <h2 className="heading">My <span>Projects</span></h2>
             <div className="portfolio-container">
                 <div className="portfolio-box">
                     <img src={estate} alt="" />
                     <div className="portfolio-layer">
                         <h3>Real Estate Website</h3>
+                        <h3>(Developing)</h3>
                         <p>Built a full-featured Real Estate Website using the MERN stack (MongoDB, Express.js, React, Node.js).</p>
                         <a href="http://main-real-estate-frontend.vercel.app"><i className="fa-solid fa-up-right-from-square"></i></a>
                     </div>
@@ -514,7 +515,7 @@ const Home = () => {
                     <div className="portfolio-layer">
                         <h3>Simple Calculator</h3>
                         <p>A Responsive Design Of Simple Calculator Using HTML , CSS & JS.</p>
-                        <a href="https://github.com/Soumyajeet2004/Simple-Calculator"><i className="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="https://soumyajeet2004.github.io/Simple-Calculator/"><i className="fa-solid fa-up-right-from-square"></i></a>
                     </div>
                 </div>
 
@@ -523,7 +524,7 @@ const Home = () => {
                     <div className="portfolio-layer">
                         <h3>Login System Using Django Framework</h3>
                         <p>A Simple Responsive Design Of Login System Using Django Framework.</p>
-                        <a href="https://github.com/Soumyajeet2004/Django_Login-System"><i className="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="#"><i className="fa-solid fa-up-right-from-square"></i></a>
                     </div>
                 </div>
 
@@ -532,7 +533,7 @@ const Home = () => {
                     <div className="portfolio-layer">
                         <h3>Amazon Website Clone</h3>
                         <p>Amazon website clone project using HTML & CSS.</p>
-                        <a href="#"><i className="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="https://github.com/Soumyajeet2004/Amazon-_Clone-Project.git"><i className="fa-solid fa-up-right-from-square"></i></a>
                     </div>
                 </div>
 
@@ -541,7 +542,7 @@ const Home = () => {
                     <div className="portfolio-layer">
                         <h3>Rock-Paper-Scissors Game</h3>
                         <p>A Responsive Rock-Paper-Scissors Game Using HTML , CSS & JS.</p>
-                        <a href="https://github.com/Soumyajeet2004/Rock-Paper-Scissors-Game"><i className="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="https://soumyajeet2004.github.io/Rock-Paper-Scissors-Game/"><i className="fa-solid fa-up-right-from-square"></i></a>
                     </div>
                 </div>
 
@@ -550,7 +551,7 @@ const Home = () => {
                     <div className="portfolio-layer">
                         <h3>Tic-Tac-Toe Game</h3>
                         <p>A Responsive Tic-Tac-Toe Game Using HTML , CSS & JS.</p>
-                        <a href="https://github.com/Soumyajeet2004/Tic-Tac-Toe-Game"><i className="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="https://soumyajeet2004.github.io/Tic-Tac-Toe-Game/"><i className="fa-solid fa-up-right-from-square"></i></a>
                     </div>
                 </div>
             </div>
